@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.Observable;
+import kapadokia.nyandoro.iq_questions.data.model.db.Option;
+import kapadokia.nyandoro.iq_questions.data.model.db.Question;
 import kapadokia.nyandoro.iq_questions.data.model.db.User;
 
 @Singleton
@@ -38,5 +40,45 @@ public class AppDbHelper implements DbHelper {
                 return true;
             }
         });
+    }
+
+    @Override
+    public Observable<List<Question>> getAllQuestions() {
+        return null;
+    }
+
+    @Override
+    public Observable<List<Option>> getAllOptionsForQuestionId(Long questionId) {
+        return null;
+    }
+
+    @Override
+    public Observable<Boolean> isOptionEmpty() {
+        return null;
+    }
+
+    @Override
+    public Observable<Boolean> isQuestionEmpty() {
+        return null;
+    }
+
+    @Override
+    public Observable<Boolean> saveOption(Option option) {
+        return null;
+    }
+
+    @Override
+    public Observable<Boolean> saveOptionList(List<Option> optionList) {
+        return null;
+    }
+
+    @Override
+    public Observable<Boolean> saveQuestion(Question question) {
+        return null;
+    }
+
+    @Override
+    public Observable<Boolean> saveQuestionList(List<Question> questionList) {
+        return null;
     }
 }
