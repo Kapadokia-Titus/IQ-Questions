@@ -6,9 +6,11 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.Single;
+import kapadokia.nyandoro.iq_questions.data.model.api.BlogResponse;
 import kapadokia.nyandoro.iq_questions.data.model.api.LoginRequest;
 import kapadokia.nyandoro.iq_questions.data.model.api.LoginResponse;
 import kapadokia.nyandoro.iq_questions.data.model.api.LogoutResponse;
+import kapadokia.nyandoro.iq_questions.data.model.api.OpenSourceResponse;
 
 @Singleton
 public class AppApiHelper implements ApiHelper {
@@ -56,5 +58,21 @@ public class AppApiHelper implements ApiHelper {
     @Override
     public ApiHeader getApiHeader() {
         return mApiHeader;
+    }
+
+    @Override
+    public Single<BlogResponse> getBlogApiCall() {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_BLOG)
+                .addHeaders(mApiHeader.getmProtectedApiHeader())
+                .build()
+                .getObjectSingle(BlogResponse.class);
+    }
+
+    @Override
+    public Single<OpenSourceResponse> getOpenSourceApiCall() {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_OPEN_SOURCE)
+                .addHeaders(mApiHeader.getmProtectedApiHeader())
+                .build()
+                .getObjectSingle(OpenSourceResponse.class);
     }
 }
