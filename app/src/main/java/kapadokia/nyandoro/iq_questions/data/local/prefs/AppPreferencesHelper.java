@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import javax.inject.Inject;
 
 import kapadokia.nyandoro.iq_questions.data.DataManager;
+import kapadokia.nyandoro.iq_questions.di.PreferenceInfo;
 import kapadokia.nyandoro.iq_questions.utils.AppConstants;
 
 public class AppPreferencesHelper implements PreferencesHelper {
