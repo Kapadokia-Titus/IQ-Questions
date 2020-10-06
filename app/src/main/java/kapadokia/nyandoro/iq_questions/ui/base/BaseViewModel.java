@@ -30,16 +30,32 @@ public abstract class BaseViewModel<N> extends ViewModel {
         super.onCleared();
     }
 
-    public CompositeDisposable getmCompositeDisposable() {
+    public CompositeDisposable getCompositeDisposable() {
         return mCompositeDisposable;
     }
 
-    public DataManager getmDataManager() {
+    public DataManager getDataManager() {
         return mDataManager;
     }
 
-    public ObservableBoolean getmIsLoading() {
+    public ObservableBoolean getIsLoading() {
         return mIsLoading;
+    }
+
+    public void setIsLoading(boolean isLoading) {
+        mIsLoading.set(isLoading);
+    }
+
+    public N getNavigator() {
+        return mNavigator.get();
+    }
+
+    public void setNavigator(N navigator) {
+        this.mNavigator = new WeakReference<>(navigator);
+    }
+
+    public SchedulerProvider getSchedulerProvider() {
+        return mSchedulerProvider;
     }
 
 }
